@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "*"
+        },
+        "Action": "es:*",
+        "Resource": "arn:aws:es:us-east-1:822040444067:domain/water-temp-domain/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:SourceIp": [
+              "177.232.90.136",
+              "201.152.215.155"
+            ]
+          }
+        }
+      },
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::822040444067:role/data-lake-week-2"
+        },
+        "Action": "es:*",
+        "Resource": "arn:aws:es:us-east-1:822040444067:domain/water-temp-domain/*"
+      }
+    ]
+  }
